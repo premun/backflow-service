@@ -9,10 +9,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["BackflowService.csproj", "NuGet.config", "."]
-RUN dotnet restore "./BackflowService.csproj"
 COPY . .
-WORKDIR "/src/."
+RUN dotnet restore "./BackflowService.csproj"
 RUN dotnet build "BackflowService.csproj" -c Release -o /app/build
 
 FROM build AS publish
@@ -20,7 +18,7 @@ RUN dotnet publish "BackflowService.csproj" -c Release -o /app/publish /p:UseApp
 
 FROM base AS final
 WORKDIR /app
-COPY FROM --from=build /src/source-mappings.json .
+COPY --from=build /src/source-mappings.json .
 COPY --from=publish /app/publish .
 RUN git config --global user.email "dotnet-maestro[bot]@users.noreply.github.com" \
     && git config --global user.name "dotnet-maestro[bot]" \
