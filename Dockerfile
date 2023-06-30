@@ -1,6 +1,8 @@
 #See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+# FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+FROM mcr.microsoft.com/dotnet-buildtools/prereqs:fedora-36 as base
+RUN dnf install -y aspnetcore-runtime-7.0
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
@@ -18,6 +20,6 @@ RUN dotnet publish "BackflowService.csproj" -c Release -o /app/publish /p:UseApp
 
 FROM base AS final
 WORKDIR /app
-COPY FROM --from=build /src/source-mappings.json /app/source-mappings.json
+COPY FROM --from=build /src/source-mappings.json .
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BackflowService.dll"]
