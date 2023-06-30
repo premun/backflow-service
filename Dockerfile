@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
-COPY ["BackflowService.csproj", "."]
+COPY ["BackflowService.csproj", "NuGet.config", "."]
 RUN dotnet restore "./BackflowService.csproj"
 COPY . .
 WORKDIR "/src/."
@@ -18,5 +18,6 @@ RUN dotnet publish "BackflowService.csproj" -c Release -o /app/publish /p:UseApp
 
 FROM base AS final
 WORKDIR /app
+COPY FROM --from=build /src/source-mappings.json /app/source-mappings.json
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "BackflowService.dll"]
