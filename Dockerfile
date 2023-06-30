@@ -1,8 +1,8 @@
 #See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-# FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
-FROM mcr.microsoft.com/dotnet-buildtools/prereqs:fedora-36 as base
-RUN dnf install -y aspnetcore-runtime-7.0
+FROM mcr.microsoft.com/dotnet/aspnet:7.0-jammy-amd64 AS base
+RUN apt-get update && apt-get install -y --no-install-recommends git \
+    && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
@@ -22,4 +22,8 @@ FROM base AS final
 WORKDIR /app
 COPY FROM --from=build /src/source-mappings.json .
 COPY --from=publish /app/publish .
+RUN git config --global user.email "dotnet-maestro[bot]@users.noreply.github.com" \
+    && git config --global user.name "dotnet-maestro[bot]" \
+    && git config --global core.autocrlf input \
+    && git config --global core.filemode false
 ENTRYPOINT ["dotnet", "BackflowService.dll"]

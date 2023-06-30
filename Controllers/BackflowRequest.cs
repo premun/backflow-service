@@ -1,4 +1,4 @@
-﻿namespace BackflowService;
+﻿namespace BackflowService.Controllers;
 
 public record BackflowRequest
 {
