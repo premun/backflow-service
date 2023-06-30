@@ -34,9 +34,9 @@ properties:
   customDomainVerificationId: 54ADE9FE338B4F2C52CD75A0E016A9B0391B6F86C5E3F5CA083F9815B9FCD05C
   environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Staging
   eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/containerApps/backflowservice-app/eventstream
-  latestReadyRevisionName: backflowservice-app--dyadg8l
-  latestRevisionFqdn: backflowservice-app--dyadg8l.ambitiouscliff-5c1f252a.westeurope.azurecontainerapps.io
-  latestRevisionName: backflowservice-app--dyadg8l
+  latestReadyRevisionName: backflowservice-app--ampjoju
+  latestRevisionFqdn: backflowservice-app--ampjoju.ambitiouscliff-5c1f252a.westeurope.azurecontainerapps.io
+  latestRevisionName: backflowservice-app--ampjoju
   managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Staging
   outboundIpAddresses:
   - 20.103.143.165
@@ -51,8 +51,8 @@ properties:
         ephemeralStorage: 2Gi
         memory: 1Gi
       volumeMounts:
-      - mountPath: /myempty
-        volumeName: myempty
+      - mountPath: /var/data
+        volumeName: storage-account-volume
     initContainers: null
     revisionSuffix: ''
     scale:
@@ -62,15 +62,16 @@ properties:
     serviceBinds: null
     terminationGracePeriodSeconds: null
     volumes:
-    - name: myempty
-      storageType: EmptyDir
+    - name: storage-account-volume
+      storageName: storageaccountmount
+      storageType: AzureFile
   workloadProfileName: null
 resourceGroup: maestro-backflow
 systemData:
   createdAt: '2023-06-29T11:59:12.1213092'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-06-29T14:52:09.2540098'
+  lastModifiedAt: '2023-06-30T09:28:41.3603178'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
 tags: {}
