@@ -19,7 +19,13 @@ properties:
       stickySessions: null
       targetPort: 80
       traffic:
-      - latestRevision: true
+      - revisionName: backflowservice-app--qrbhtns
+        weight: 0
+      - revisionName: backflowservice-app--t1ve70x
+        weight: 0
+      - revisionName: backflowservice-app--95xjv1t
+        weight: 0
+      - revisionName: backflowservice-app--infxkdd
         weight: 100
       transport: Auto
     maxInactiveRevisions: null
@@ -34,9 +40,9 @@ properties:
   customDomainVerificationId: 54ADE9FE338B4F2C52CD75A0E016A9B0391B6F86C5E3F5CA083F9815B9FCD05C
   environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Staging
   eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/containerApps/backflowservice-app/eventstream
-  latestReadyRevisionName: backflowservice-app--ampjoju
-  latestRevisionFqdn: backflowservice-app--ampjoju.ambitiouscliff-5c1f252a.westeurope.azurecontainerapps.io
-  latestRevisionName: backflowservice-app--ampjoju
+  latestReadyRevisionName: backflowservice-app--infxkdd
+  latestRevisionFqdn: backflowservice-app--infxkdd.ambitiouscliff-5c1f252a.westeurope.azurecontainerapps.io
+  latestRevisionName: backflowservice-app--infxkdd
   managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Staging
   outboundIpAddresses:
   - 20.103.143.165
@@ -44,12 +50,13 @@ properties:
   runningStatus: Running
   template:
     containers:
-    - image: backflowservice.azurecr.io/backflowservice:20230629122245
+    - image: backflowservice.azurecr.io/backflowservice:20230630131143
       name: backflowservice
+      probes: []
       resources:
-        cpu: 0.5
-        ephemeralStorage: 2Gi
-        memory: 1Gi
+        cpu: 2
+        ephemeralStorage: 8Gi
+        memory: 4Gi
       volumeMounts:
       - mountPath: /var/data
         volumeName: storage-account-volume
@@ -71,7 +78,7 @@ systemData:
   createdAt: '2023-06-29T11:59:12.1213092'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-06-30T09:28:41.3603178'
+  lastModifiedAt: '2023-07-03T11:19:16.6408992'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
 tags: {}
