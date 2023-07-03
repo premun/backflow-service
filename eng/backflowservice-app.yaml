@@ -1,8 +1,8 @@
-id: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/containerapps/backflowservice-app
+id: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/containerapps/backflowservice-app-202307031655
 identity:
   type: None
 location: West Europe
-name: backflowservice-app
+name: backflowservice-app-202307031655
 properties:
   configuration:
     activeRevisionsMode: Single
@@ -14,18 +14,12 @@ properties:
       customDomains: null
       exposedPort: 0
       external: true
-      fqdn: backflowservice-app.ambitiouscliff-5c1f252a.westeurope.azurecontainerapps.io
+      fqdn: backflowservice-app-202307031655.calmforest-16f1cc27.westeurope.azurecontainerapps.io
       ipSecurityRestrictions: null
       stickySessions: null
       targetPort: 80
       traffic:
-      - revisionName: backflowservice-app--qrbhtns
-        weight: 0
-      - revisionName: backflowservice-app--t1ve70x
-        weight: 0
-      - revisionName: backflowservice-app--95xjv1t
-        weight: 0
-      - revisionName: backflowservice-app--infxkdd
+      - latestRevision: true
         weight: 100
       transport: Auto
     maxInactiveRevisions: null
@@ -38,24 +32,23 @@ properties:
     - name: backflowservice
     service: null
   customDomainVerificationId: 54ADE9FE338B4F2C52CD75A0E016A9B0391B6F86C5E3F5CA083F9815B9FCD05C
-  environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Staging
-  eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/containerApps/backflowservice-app/eventstream
-  latestReadyRevisionName: backflowservice-app--infxkdd
-  latestRevisionFqdn: backflowservice-app--infxkdd.ambitiouscliff-5c1f252a.westeurope.azurecontainerapps.io
-  latestRevisionName: backflowservice-app--infxkdd
-  managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Staging
+  environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Premium
+  eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/containerApps/backflowservice-app-202307031655/eventstream
+  latestReadyRevisionName: backflowservice-app-202307031655--nsivagq
+  latestRevisionFqdn: backflowservice-app-202307031655--nsivagq.calmforest-16f1cc27.westeurope.azurecontainerapps.io
+  latestRevisionName: backflowservice-app-202307031655--nsivagq
+  managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/Premium
   outboundIpAddresses:
-  - 20.103.143.165
+  - 4.245.90.123
   provisioningState: Succeeded
   runningStatus: Running
   template:
     containers:
-    - image: backflowservice.azurecr.io/backflowservice:20230630131143
-      name: backflowservice
-      probes: []
+    - image: backflowservice.azurecr.io/backflowservice:20230703145804
+      name: backflowservice-app
       resources:
         cpu: 2
-        ephemeralStorage: 8Gi
+        ephemeralStorage: 2Gi
         memory: 4Gi
       volumeMounts:
       - mountPath: /var/data
@@ -75,10 +68,10 @@ properties:
   workloadProfileName: null
 resourceGroup: maestro-backflow
 systemData:
-  createdAt: '2023-06-29T11:59:12.1213092'
+  createdAt: '2023-07-03T14:55:48.5974194'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-07-03T11:19:16.6408992'
+  lastModifiedAt: '2023-07-03T14:58:19.3080875'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
 tags: {}
