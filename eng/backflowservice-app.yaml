@@ -1,45 +1,60 @@
-id: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/containerapps/backflowservice-app
+id: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/providers/Microsoft.App/containerapps/bf-app
 identity:
   type: None
 location: West Europe
-name: backflowservice-app
+name: bf-app
 properties:
   configuration:
     activeRevisionsMode: Single
     dapr: null
-    ingress: null
+    ingress:
+      allowInsecure: false
+      clientCertificateMode: null
+      corsPolicy: null
+      customDomains: null
+      exposedPort: 0
+      external: true
+      fqdn: bf-app.mangocoast-d6997f7d.westeurope.azurecontainerapps.io
+      ipSecurityRestrictions: null
+      stickySessions:
+        affinity: none
+      targetPort: 443
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
     maxInactiveRevisions: null
     registries:
     - identity: ''
-      passwordSecretRef: reg-pswd-9951247e-97b3
+      passwordSecretRef: reg-pswd-656b10ca-a3e8
       server: backflowservice.azurecr.io
       username: BackflowService
     secrets:
-    - name: reg-pswd-9951247e-97b3
+    - name: reg-pswd-656b10ca-a3e8
     service: null
   customDomainVerificationId: 54ADE9FE338B4F2C52CD75A0E016A9B0391B6F86C5E3F5CA083F9815B9FCD05C
-  environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/EnvWithVnet
-  eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/containerApps/backflowservice-app/eventstream
-  latestReadyRevisionName: backflowservice-app--l6dqv39
-  latestRevisionFqdn: ''
-  latestRevisionName: backflowservice-app--myj9ou0
-  managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/EnvWithVnet
+  environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/providers/Microsoft.App/managedEnvironments/bf-env
+  eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/containerApps/bf-app/eventstream
+  latestReadyRevisionName: bf-app--ee
+  latestRevisionFqdn: bf-app--k69mrqn.mangocoast-d6997f7d.westeurope.azurecontainerapps.io
+  latestRevisionName: bf-app--k69mrqn
+  managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/providers/Microsoft.App/managedEnvironments/bf-env
   outboundIpAddresses:
-  - 20.8.31.241
+  - 20.76.225.71
   provisioningState: Succeeded
   runningStatus: Running
   template:
     containers:
-    - image: backflowservice.azurecr.io/backflowservice:20230703145804
-      name: backflowservice-app
+    - image: backflowservice.azurecr.io/backflowservice:20230704110750
+      name: bf-app
       probes: []
       resources:
-        cpu: 2
+        cpu: 2.0
         ephemeralStorage: 8Gi
         memory: 4Gi
       volumeMounts:
       - mountPath: /var/data
-        volumeName: storage-account-volume
+        volumeName: bfpremium3
     initContainers: null
     revisionSuffix: ''
     scale:
@@ -49,17 +64,16 @@ properties:
     serviceBinds: null
     terminationGracePeriodSeconds: null
     volumes:
-    - name: storage-account-volume
-      storageName: backflowservicesmb
+    - name: bfpremium3
+      storageName: bfpremium3
       storageType: AzureFile
   workloadProfileName: null
-resourceGroup: maestro-backflow
+resourceGroup: bf
 systemData:
-  createdAt: '2023-07-04T08:08:18.2323075'
+  createdAt: '2023-07-04T11:54:54.2975905'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-07-04T10:18:06.4602608'
+  lastModifiedAt: '2023-07-04T13:38:22.8827781'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
-tags: {}
 type: Microsoft.App/containerApps
