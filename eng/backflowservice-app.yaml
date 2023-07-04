@@ -22,7 +22,7 @@ properties:
   eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/containerApps/backflowservice-app/eventstream
   latestReadyRevisionName: backflowservice-app--l6dqv39
   latestRevisionFqdn: ''
-  latestRevisionName: backflowservice-app--kfn4jwh
+  latestRevisionName: backflowservice-app--myj9ou0
   managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/maestro-backflow/providers/Microsoft.App/managedEnvironments/EnvWithVnet
   outboundIpAddresses:
   - 20.8.31.241
@@ -32,8 +32,9 @@ properties:
     containers:
     - image: backflowservice.azurecr.io/backflowservice:20230703145804
       name: backflowservice-app
+      probes: []
       resources:
-        cpu: 2.0
+        cpu: 2
         ephemeralStorage: 8Gi
         memory: 4Gi
       volumeMounts:
@@ -49,7 +50,7 @@ properties:
     terminationGracePeriodSeconds: null
     volumes:
     - name: storage-account-volume
-      storageName: premiumstorageaccount
+      storageName: backflowservicesmb
       storageType: AzureFile
   workloadProfileName: null
 resourceGroup: maestro-backflow
@@ -57,7 +58,8 @@ systemData:
   createdAt: '2023-07-04T08:08:18.2323075'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-07-04T09:04:59.7522533'
+  lastModifiedAt: '2023-07-04T10:18:06.4602608'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
+tags: {}
 type: Microsoft.App/containerApps
