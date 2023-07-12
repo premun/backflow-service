@@ -13,7 +13,7 @@ builder.Services.AddTransient<IStartupFilter>(sp => ActivatorUtilities.CreateIns
 builder.Services.AddControllers();
 
 // Register background services
-builder.Services.AddHostedService(sp => ActivatorUtilities.CreateInstance<RepoInitializer>(sp, vmrPath));
+builder.Services.AddHostedService(sp => ActivatorUtilities.CreateInstance<RequestProcessor>(sp, vmrPath));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
