@@ -7,6 +7,7 @@
     <UserSecretsId>29926cab-c91e-41bd-9cdb-f4e3624ed629</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>.</DockerfileContext>
+    <ApplicationInsightsResourceId>/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf-app-service/providers/microsoft.insights/components/BackflowService20230712112300</ApplicationInsightsResourceId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,6 +16,7 @@
     <PackageReference Include="Microsoft.DotNet.DarcLib" Version="1.1.0-beta.23328.5" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.18.0" />
   </ItemGroup>
 
 </Project>
