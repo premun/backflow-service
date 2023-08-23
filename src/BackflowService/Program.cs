@@ -9,8 +9,10 @@ var vmrPath = $"/mnt/data/vmr/{runId}";
 var tmpPath = "/mnt/data/tmp";
 
 builder.Services.AddLogging(b =>
-    b.AddConsole(o => o.FormatterName = SimpleConsoleLoggerFormatter.FormatterName)
-     .AddConsoleFormatter<SimpleConsoleLoggerFormatter, SimpleConsoleFormatterOptions>());
+    b.AddConsole(options =>
+        options.FormatterName = SimpleConsoleLoggerFormatter.FormatterName)
+     .AddConsoleFormatter<SimpleConsoleLoggerFormatter, SimpleConsoleFormatterOptions>(
+        options => options.TimestampFormat = "[HH:mm:ss] "));
 
 // Add start up processes
 builder.Services.AddTransient<IStartupFilter>(sp => ActivatorUtilities.CreateInstance<VmrInitStartupFilter>(sp, vmrPath));
