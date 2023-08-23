@@ -13,12 +13,9 @@ public class VmrInitStartupFilter(ILogger<VmrInitStartupFilter> logger, string v
         _logger.LogInformation($"Initializing VMR at {_vmrPath}...");
 
         Directory.CreateDirectory(_vmrPath);
-        Directory.CreateDirectory($"{_vmrPath}/src");
         using var repo = new Repository(Repository.Init(_vmrPath));
         var signature = new Signature(Constants.DarcBotName, Constants.DarcBotEmail, DateTimeOffset.Now);
-        File.Copy("/app/source-mappings.json", $"{_vmrPath}/src/source-mappings.json");
-        Commands.Stage(repo, "*");
-        repo.Commit("Initial commit", signature, signature);
+        repo.Commit("Initial commit", signature, signature, new CommitOptions { AllowEmptyCommit = true });
 
         next(builder);
     };
