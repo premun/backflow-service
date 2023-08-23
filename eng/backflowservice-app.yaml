@@ -1,60 +1,52 @@
-id: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/providers/Microsoft.App/containerapps/bf-app
+id: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/containerapps/backflow-service-app
 identity:
   type: None
-location: West Europe
-name: bf-app
+location: North Central US (Stage)
+name: backflow-service-app
 properties:
   configuration:
     activeRevisionsMode: Single
     dapr: null
-    ingress:
-      allowInsecure: false
-      clientCertificateMode: null
-      corsPolicy: null
-      customDomains: null
-      exposedPort: 0
-      external: true
-      fqdn: bf-app.mangocoast-d6997f7d.westeurope.azurecontainerapps.io
-      ipSecurityRestrictions: null
-      stickySessions:
-        affinity: none
-      targetPort: 443
-      traffic:
-      - latestRevision: true
-        weight: 100
-      transport: Auto
+    ingress: null
     maxInactiveRevisions: null
     registries:
     - identity: ''
-      passwordSecretRef: reg-pswd-656b10ca-a3e8
-      server: backflowservice.azurecr.io
-      username: BackflowService
+      passwordSecretRef: reg-pswd-2dbfd83f-b40c
+      server: backflowservice20230822154537.azurecr.io
+      username: BackflowService20230822154537
     secrets:
-    - name: reg-pswd-656b10ca-a3e8
+    - name: reg-pswd-2dbfd83f-b40c
     service: null
   customDomainVerificationId: 54ADE9FE338B4F2C52CD75A0E016A9B0391B6F86C5E3F5CA083F9815B9FCD05C
-  environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/providers/Microsoft.App/managedEnvironments/bf-env
-  eventStreamEndpoint: https://westeurope.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/containerApps/bf-app/eventstream
-  latestReadyRevisionName: bf-app--ee
-  latestRevisionFqdn: bf-app--k69mrqn.mangocoast-d6997f7d.westeurope.azurecontainerapps.io
-  latestRevisionName: bf-app--k69mrqn
-  managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/bf/providers/Microsoft.App/managedEnvironments/bf-env
+  environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/managedEnvironments/backflow-service-env
+  eventStreamEndpoint: https://northcentralusstage.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/containerApps/backflow-service-app/eventstream
+  latestReadyRevisionName: backflow-service-app--c1khuef
+  latestRevisionFqdn: ''
+  latestRevisionName: backflow-service-app--c1khuef
+  managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/managedEnvironments/backflow-service-env
   outboundIpAddresses:
-  - 20.76.225.71
+  - 20.9.115.172
+  - 20.9.116.165
+  - 20.9.116.161
+  - 20.9.116.46
+  - 20.221.106.163
+  - 20.221.107.3
+  - 20.221.106.208
+  - 20.221.106.152
   provisioningState: Succeeded
   runningStatus: Running
   template:
     containers:
-    - image: backflowservice.azurecr.io/backflowservice:20230704110750
-      name: bf-app
+    - image: backflowservice20230822154537.azurecr.io/backflowservice:latest
+      name: backflow-service-app
       probes: []
       resources:
         cpu: 2.0
         ephemeralStorage: 8Gi
         memory: 4Gi
       volumeMounts:
-      - mountPath: /var/data
-        volumeName: bfpremium3
+      - mountPath: /mnt/data
+        volumeName: lgndisk-100g
     initContainers: null
     revisionSuffix: ''
     scale:
@@ -64,16 +56,15 @@ properties:
     serviceBinds: null
     terminationGracePeriodSeconds: null
     volumes:
-    - name: bfpremium3
-      storageName: bfpremium3
-      storageType: AzureFile
-  workloadProfileName: null
-resourceGroup: bf
+    - name: lgndisk-100g
+      storageType: EmptyDir
+  workloadProfileName: Consumption
+resourceGroup: backflow-service
 systemData:
-  createdAt: '2023-07-04T11:54:54.2975905'
+  createdAt: '2023-08-23T09:55:19.6586487'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-07-04T13:38:22.8827781'
+  lastModifiedAt: '2023-08-23T12:06:18.5885996'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
 type: Microsoft.App/containerApps
