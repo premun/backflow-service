@@ -9,4 +9,6 @@ public record BackflowRequest
     public required string Repo { get; init; }
 
     public required string Sha { get; init; }
+
+    public bool Recursive { get; init; }
 }

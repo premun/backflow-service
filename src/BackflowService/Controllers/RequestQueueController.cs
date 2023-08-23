@@ -13,7 +13,7 @@ public abstract class RequestQueueController : ControllerBase
         _type = type;
     }
 
-    protected Task<IActionResult> CreateInternal(string repo, string sha)
+    protected Task<IActionResult> CreateInternal(string repo, string sha, bool recursive)
     {
         var request = new BackflowRequest
         {
@@ -21,6 +21,7 @@ public abstract class RequestQueueController : ControllerBase
             Type = _type,
             Repo = repo,
             Sha = sha,
+            Recursive = recursive,
         };
 
         _logger.LogInformation($"Creating {_type} backflow request {request.Id}");
