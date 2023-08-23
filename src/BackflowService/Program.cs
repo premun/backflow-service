@@ -4,7 +4,8 @@ using Microsoft.DotNet.DarcLib.VirtualMonoRepo;
 var builder = WebApplication.CreateBuilder(args);
 
 var runId = Guid.NewGuid().ToString();
-var vmrPath = $"/var/data/vmr/{runId}";
+var vmrPath = $"/mnt/data/vmr/{runId}";
+var tmpPath = "/mnt/data/tmp";
 
 // Add start up processes
 builder.Services.AddTransient<IStartupFilter>(sp => ActivatorUtilities.CreateInstance<VmrInitStartupFilter>(sp, vmrPath));
@@ -24,7 +25,7 @@ builder.Services.AddVmrManagers(
     sp => sp.GetRequiredService<GitFileManagerFactory>(),
     "git",
     vmrPath,
-    "/var/data/tmp",
+    tmpPath,
     gitHubToken: null,
     azureDevOpsToken: null);
 builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
