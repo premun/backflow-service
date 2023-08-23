@@ -35,9 +35,9 @@ properties:
   customDomainVerificationId: 54ADE9FE338B4F2C52CD75A0E016A9B0391B6F86C5E3F5CA083F9815B9FCD05C
   environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/managedEnvironments/backflow-service-env
   eventStreamEndpoint: https://northcentralusstage.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/containerApps/backflow-service-app/eventstream
-  latestReadyRevisionName: backflow-service-app--aa
-  latestRevisionFqdn: backflow-service-app--aa.blackpond-195f2b5d.northcentralusstage.azurecontainerapps.io
-  latestRevisionName: backflow-service-app--aa
+  latestReadyRevisionName: backflow-service-app--bb
+  latestRevisionFqdn: backflow-service-app--bb.blackpond-195f2b5d.northcentralusstage.azurecontainerapps.io
+  latestRevisionName: backflow-service-app--bb
   managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/managedEnvironments/backflow-service-env
   outboundIpAddresses:
   - 20.221.106.163
@@ -63,7 +63,7 @@ properties:
       - mountPath: /mnt/data
         volumeName: lgndisk-100g
     initContainers: null
-    revisionSuffix: aa
+    revisionSuffix: bb
     scale:
       maxReplicas: 1
       minReplicas: 1
@@ -79,7 +79,7 @@ systemData:
   createdAt: '2023-08-23T09:55:19.6586487'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-08-23T13:02:06.7992018'
+  lastModifiedAt: '2023-08-23T14:15:27.3644014'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
 type: Microsoft.App/containerApps
