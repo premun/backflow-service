@@ -7,7 +7,22 @@ properties:
   configuration:
     activeRevisionsMode: Single
     dapr: null
-    ingress: null
+    ingress:
+      allowInsecure: false
+      clientCertificateMode: Ignore
+      corsPolicy: null
+      customDomains: null
+      exposedPort: 0
+      external: true
+      fqdn: backflow-service-app.blackpond-195f2b5d.northcentralusstage.azurecontainerapps.io
+      ipSecurityRestrictions: null
+      stickySessions:
+        affinity: none
+      targetPort: 80
+      traffic:
+      - latestRevision: true
+        weight: 100
+      transport: Auto
     maxInactiveRevisions: null
     registries:
     - identity: ''
@@ -21,7 +36,7 @@ properties:
   environmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/managedEnvironments/backflow-service-env
   eventStreamEndpoint: https://northcentralusstage.azurecontainerapps.dev/subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/containerApps/backflow-service-app/eventstream
   latestReadyRevisionName: backflow-service-app--c1khuef
-  latestRevisionFqdn: ''
+  latestRevisionFqdn: backflow-service-app--c1khuef.blackpond-195f2b5d.northcentralusstage.azurecontainerapps.io
   latestRevisionName: backflow-service-app--c1khuef
   managedEnvironmentId: /subscriptions/0b38483d-f273-4816-832b-59fea3a17a23/resourceGroups/backflow-service/providers/Microsoft.App/managedEnvironments/backflow-service-env
   outboundIpAddresses:
@@ -41,7 +56,7 @@ properties:
       name: backflow-service-app
       probes: []
       resources:
-        cpu: 2.0
+        cpu: 2
         ephemeralStorage: 8Gi
         memory: 4Gi
       volumeMounts:
@@ -64,7 +79,7 @@ systemData:
   createdAt: '2023-08-23T09:55:19.6586487'
   createdBy: prvysoky@microsoft.com
   createdByType: User
-  lastModifiedAt: '2023-08-23T12:06:18.5885996'
+  lastModifiedAt: '2023-08-23T12:47:06.029378'
   lastModifiedBy: prvysoky@microsoft.com
   lastModifiedByType: User
 type: Microsoft.App/containerApps
